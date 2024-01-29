@@ -33,8 +33,31 @@ document.addEventListener("DOMContentLoaded", function() {
         const recetteDiv = document.createElement('div');
         recetteDiv.classList.add('recette');
   
-        // Ajoute un lien pour chaque recette
-        const lienRecette = `https://www.undejeunerdesoleil.com/?s=${encodeURIComponent(recette.Recette)}`;
+        // Générer le lien en fonction de la source
+        let lienRecette = '';
+  
+        switch (recette.Source.toLowerCase()) {
+          case 'la cuisine de bernard':
+            lienRecette = `https://lacuisinedebernard.com/${encodeURIComponent(recette.Recette)}/`;
+            break;
+          case "c'est ma fournée":
+            lienRecette = `https://www.cestmafournee.com/search?q=${encodeURIComponent(recette.Recette)}`;
+            break;
+          case 'alter gusto':
+            lienRecette = `https://www.altergusto.fr/?s=${encodeURIComponent(recette.Recette)}`;
+            break;
+          case 'papilles et pupilles':
+            lienRecette = `https://www.papillesetpupilles.fr/?s=${encodeURIComponent(recette.Recette)}`;
+            break;
+          case 'pankaj blog':
+            lienRecette = `https://www.pankaj-blog.com/?s=${encodeURIComponent(recette.Recette)}`;
+            break;
+          case 'un déjeuner de soleil':
+            lienRecette = `https://www.undejeunerdesoleil.com/?s=${encodeURIComponent(recette.Recette)}`;
+            break;
+          default:
+            lienRecette = '#'; // Lien par défaut, peut être modifié selon les besoins
+        }
   
         recetteDiv.innerHTML = `
           <h2><a href="${lienRecette}" target="_blank">${recette.Recette}</a></h2>
