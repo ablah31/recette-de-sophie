@@ -7,9 +7,13 @@ body {
   
   header {
     
-  color: rgb(7, 7, 7);
-  text-align: center;
-  padding: 2em 0;
+    color: rgb(8, 8, 8);
+    text-align: center;
+    padding: 2em 0; /* Ajoute un espace supplémentaire en haut et en bas du header */
+  }
+  
+  h1 {
+    margin: 0; /* Supprime la marge par défaut du h1 */
   }
   
   #search {
@@ -17,13 +21,9 @@ body {
     max-width: 400px;
     padding: 10px;
     font-size: 16px;
-    margin: 20px auto; /* Centre la barre de recherche et ajoute une marge en haut */
+    margin: 20px auto;
     box-sizing: border-box;
-    display: block; /* Ajuste le comportement du margin auto avec display block */
-  }
-  
-  h1 {
-    margin-top: 20px; /* Ajoute une marge en haut pour séparer le titre de la barre de recherche */
+    display: block;
   }
   
   #recettes-container {
@@ -40,8 +40,13 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .recette h2 {
-    color: #333;
+  .recette h2 a {
+    color: orange; /* Couleur orange pour les liens */
+    text-decoration: none; /* Supprime le soulignement du lien */
+  }
+  
+  .recette h2 a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol du lien */
   }
   
   .recette p {

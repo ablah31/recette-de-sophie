@@ -33,8 +33,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const recetteDiv = document.createElement('div');
         recetteDiv.classList.add('recette');
   
+        // Ajoute un lien pour chaque recette
+        const lienRecette = `https://www.undejeunerdesoleil.com/?s=${encodeURIComponent(recette.Recette)}`;
+  
         recetteDiv.innerHTML = `
-          <h2>${recette.Recette}</h2>
+          <h2><a href="${lienRecette}" target="_blank">${recette.Recette}</a></h2>
           <p class="categorie">Catégorie: ${recette.Catégorie}</p>
           <p>Source: ${recette.Source}</p>
           <p class="etoiles">Nombre d'étoiles: ${recette["Nombre d'étoiles"]}</p>
