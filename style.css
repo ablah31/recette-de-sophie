@@ -79,6 +79,61 @@ body {
     bottom: 0;
     width: 100%;
   }
+
+/* Styles pour la section d'ajout de recette */
+#ajouter-recette-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#ajouter-recette-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#ajouter-recette-form input[type="text"],
+#ajouter-recette-form input[type="number"],
+#ajouter-recette-form textarea {
+  width: calc(100% - 10px);
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#ajouter-recette-form textarea {
+  height: 100px;
+}
+
+#ajouter-recette-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styles pour le lien d'ajout de recette */
+#ajouter-recette-link {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  color: orange;
+  text-decoration: none;
+}
+
+#ajouter-recette-link:hover {
+  text-decoration: underline;
+}
+
   
   /* Responsive Styles */
   @media screen and (max-width: 600px) {
