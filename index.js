@@ -66,13 +66,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             })
             .then(() => {
-                // Afficher à nouveau toutes les recettes après l'ajout de la nouvelle recette
+                // Après avoir ajouté la recette, recharger et afficher toutes les recettes
                 fetch('recette.json')
                     .then(response => response.json())
                     .then(data => {
                         afficherRecettes(data);
                     })
-                    .catch(error => console.error('Erreur de chargement du fichier JSON:', error));
+                    .catch(error => console.error('Erreur lors du chargement des recettes:', error));
             })
             .catch(error => console.error('Erreur lors de l\'ajout de la recette:', error));
     }
@@ -90,4 +90,47 @@ document.addEventListener("DOMContentLoaded", function() {
         const commentairesInput = document.getElementById('commentaires');
         const ingredientsInput = document.getElementById('ingredients');
 
-        // Cr
+        // Créer un objet représentant la nouvelle recette
+        const nouvelleRecette = {
+            "Recette": nomRecetteInput.value,
+            "Catégorie": categorieInput.value,
+            "Source": sourceInput.value,
+            "Nombre d'étoiles": etoilesInput.value,
+            "Commentaires": commentairesInput.value,
+            "Ingrédients": ingredientsInput.value
+        };
+
+        // Ajouter la nouvelle recette
+        ajouterRecette(nouvelleRecette);
+
+        // Réinitialiser le formulaire après l'ajout de la recette
+        ajouterRecetteForm.reset();
+    });
+
+    // Ajouter un écouteur d'événements pour la recherche
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const recettes = Array.from(document.querySelectorAll('.recette'));
+
+        recettes.forEach(recette => {
+            const recetteTitle = recette.querySelector('h2').textContent.toLowerCase();
+            const recetteCategory = recette.querySelector('.categorie').textContent.toLowerCase();
+            const recetteSource = recette.querySelector('p:nth-of-type(2)').textContent.toLowerCase();
+
+            if (recetteTitle.includes(searchTerm) || recetteCategory.includes(searchTerm) || recetteSource.includes(searchTerm)) {
+                recette.style.display = 'block';
+            } else {
+                recette.style.display = 'none';
+            }
+        });
+    });
+
+    // Afficher toutes les recettes au chargement initial
+    fetch('recette.json')
+        .then(response => response.json())
+        .then(data => {
+            afficherRecettes(data);
+        })
+        .catch(error => console.error('Erreur de chargement du fichier JSON:', error));
+});
