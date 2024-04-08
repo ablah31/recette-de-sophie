@@ -90,28 +90,4 @@ document.addEventListener("DOMContentLoaded", function() {
         const commentairesInput = document.getElementById('commentaires');
         const ingredientsInput = document.getElementById('ingredients');
 
-        // Créer un objet représentant la nouvelle recette
-        const nouvelleRecette = {
-            "Recette": nomRecetteInput.value,
-            "Catégorie": categorieInput.value,
-            "Source": sourceInput.value,
-            "Nombre d'étoiles": etoilesInput.value,
-            "Commentaires": commentairesInput.value,
-            "Ingrédients": ingredientsInput.value
-        };
-
-        // Ajouter la nouvelle recette
-        ajouterRecette(nouvelleRecette);
-
-        // Effacer le formulaire après l'ajout de la recette
-        ajouterRecetteForm.reset();
-    });
-
-    // Appel initial pour afficher toutes les recettes
-    fetch('recette.json')
-        .then(response => response.json())
-        .then(data => {
-            afficherRecettes(data);
-        })
-        .catch(error => console.error('Erreur de chargement du fichier JSON:', error));
-});
+        // Cr
