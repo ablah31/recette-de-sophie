@@ -9,14 +9,14 @@
 <body>
 
 <header>
-    <h1>Les Recettes de Sophie</h1>
+    <h1 class="one">Les Recettes de Sophie</h1>
     <input type="text" id="search" placeholder="Rechercher une recette...">
 </header>
 
+<button id="toggle-form-btn">Ajouter une recette</button>
 
-
-<h1>Ajouter une nouvelle recette</h1>
-<form id="ajouter-recette-form">
+<form id="ajouter-recette-form" style="display: none;">
+    <h3>Ajouter une nouvelle recette</h3>
     <label for="nom-recette">Nom de la recette:</label>
     <input type="text" id="nom-recette" name="nom-recette" required><br>
 
